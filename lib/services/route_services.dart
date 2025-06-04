@@ -1,0 +1,98 @@
+import 'package:get/get.dart';
+import 'package:mobistock/controllers/auth_controller.dart';
+import 'package:mobistock/routes/app_routes.dart';
+
+class RouteService {
+  // Authentication Navigation
+  static void toLogin() {
+    Get.toNamed(AppRoutes.login);
+  }
+
+  static void toSignup() {
+    Get.toNamed(AppRoutes.signup);
+  }
+
+  static void toResetPassword() {
+    Get.toNamed(AppRoutes.resetPassword);
+  }
+
+  static void toVerifyEmail({Map<String, dynamic>? parameters}) {
+    // Convert to Map<String, String> by converting values to strings
+    Map<String, String>? stringParameters;
+    if (parameters != null) {
+      stringParameters = parameters.map(
+        (key, value) => MapEntry(key, value.toString()),
+      );
+    }
+    Get.toNamed(AppRoutes.verifyEmail, parameters: stringParameters);
+  }
+
+  // Main App Navigation
+  static void toDashboard() {
+    Get.toNamed(AppRoutes.dashboard);
+  }
+
+  static void toProfile() {
+    Get.toNamed(AppRoutes.profile);
+  }
+
+  static void toSettings() {
+    Get.toNamed(AppRoutes.settings);
+  }
+
+  // Special Navigation Methods
+  static void toWelcome() {
+    Get.offAllNamed(AppRoutes.welcome);
+  }
+
+  static void logout() {
+    // Clear all data and go to login
+    Get.delete<AuthController>(force: true);
+    Get.offAllNamed(AppRoutes.login);
+  }
+
+  static void backToLogin() {
+    Get.offNamedUntil(AppRoutes.login, (route) => false);
+  }
+
+  // Navigation with parameters
+  static void toLoginWithEmail(String email) {
+    Get.toNamed(AppRoutes.login, parameters: {'email': email});
+  }
+
+  static void toSignupWithEmail(String email) {
+    Get.toNamed(AppRoutes.signup, parameters: {'email': email});
+  }
+
+  // // Back navigation
+  // static void goBack() {
+  //   if (Get.canPop()) {
+  //     Get.back();
+  //   } else {
+  //     Get.offAllNamed(AppRoutes.home);
+  //   }
+  // }
+
+  // // Check if can go back
+  // static bool canGoBack() {
+  //   return Get.canPop();
+  // }
+
+  // Get current route
+  static String getCurrentRoute() {
+    return Get.currentRoute;
+  }
+
+  // Navigation with result
+  static Future<T?> toWithResult<T>(
+    String routeName, {
+    dynamic arguments,
+  }) async {
+    return Get.toNamed<T>(routeName, arguments: arguments);
+  }
+
+  // Replace current route
+  static void offAndToNamed(String routeName, {dynamic arguments}) {
+    Get.offAndToNamed(routeName, arguments: arguments);
+  }
+}
