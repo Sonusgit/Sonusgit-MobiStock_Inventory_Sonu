@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:mobistock/views/sales_management/common_textformfield.dart';
+import 'package:mobistock/views/sales_management/common_widgets/common_textformfield.dart';
 import 'package:mobistock/views/sales_management/common_widgets/common_dropdown_button.dart';
 import 'package:mobistock/views/sales_management/sellProduct2.dart';
 

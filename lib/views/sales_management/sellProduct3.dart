@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/route_manager.dart';
-import 'package:mobistock/views/sales_management/common_textformfield.dart';
+import 'package:mobistock/views/sales_management/common_widgets/common_textformfield.dart';
 import 'package:mobistock/views/sales_management/common_widgets/common_dropdown_button.dart';
 import 'package:mobistock/views/sales_management/common_widgets/common_radio._buttondart';
 import 'package:mobistock/views/sales_management/sellProduct4.dart';
