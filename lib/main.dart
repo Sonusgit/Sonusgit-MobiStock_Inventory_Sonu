@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
+import 'package:mobistock/controllers/auth_controller.dart';
 import 'package:mobistock/routes/app_pages.dart';
 import 'package:mobistock/routes/app_routes.dart';
 import 'package:mobistock/utils/page_not_found.dart';
+import 'package:mobistock/views/sales_management/sales_management.dart';
 import 'package:mobistock/views/sales_management/sellProduct1.dart';
 
 void main() async {
@@ -16,6 +18,8 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   @override
+  
+
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'MobiStock',
@@ -29,8 +33,9 @@ class MyApp extends StatelessWidget {
       //   name: AppRoutes.notFound,
       //   page: () => PageNotFoundScreen(),
       // ),
-      home: SellAProduct1(),
+      home: SalesManagement(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
+// class constentController {}
