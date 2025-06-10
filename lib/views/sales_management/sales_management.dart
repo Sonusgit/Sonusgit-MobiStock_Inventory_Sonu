@@ -1,84 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:mobistock/views/sales_management/sellProduct1.dart';
-import 'package:mobistock/views/sales_management/sellProduct2.dart';
-import 'package:mobistock/views/sales_management/sellProduct3.dart';
-import 'package:mobistock/views/sales_management/sellProduct4.dart';
-import 'package:mobistock/views/sales_management/sellProduct5.dart';
-import 'package:mobistock/views/sales_management/widgets/sales_widgets.dart';
+import 'package:mobistock/views/sales_management/five_stap_forn.dart';
+
+enum PaymentType { payment, cash }
 
 class SalesManagement extends StatefulWidget {
   const SalesManagement({super.key});
 
   @override
-  State<SalesManagement> createState() => _State();
+  State<SalesManagement> createState() => _SalesManagementState();
 }
 
-class _State extends State<SalesManagement> {
-  int _currentStap = 0;
+class _SalesManagementState extends State<SalesManagement> {
+  PaymentType? _paymentType;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFF667eea), Color(0xFF764ba2)],
-          ),
-        ),
-        child: SafeArea(
-          child: ListView(
+      appBar: AppBar(
+        title: Text('Sales Management'),
+        backgroundColor: Colors.deepPurple,
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
             children: [
-              Stepper(
-                type: StepperType.vertical,
-                
-                controlsBuilder: (context, details) {
-                  return Container(
-                    margin:EdgeInsets.only(top: 10) ,
-                    child: Row(
-                      
-                      children: <Widget>[
-                        SalesWidgets.buildModernButton(
-                          text: "Next",
-                          onPressed: details.onStepContinue ?? () {},
-                        ),
-                        SizedBox(width: 16.0),
-                        SalesWidgets.buildModernButton(
-                          text: "Previous",
-                          color:  Colors.white.withOpacity(0.1),
-                          onPressed: details.onStepCancel ?? () {},
-                        ),
-                      ],
-                    ),
-                  );
-                },
-                steps: [
-                  Step(title: Text("SellProduct1"), isActive: _currentStap >=0, content: SellProduct1(),state: _currentStap >=0 ? StepState.complete:StepState.disabled),
-                  Step(title: Text("SellProduct2"), isActive: _currentStap >=1, content: SellProduct2(),state: _currentStap >=1 ? StepState.complete:StepState.disabled),
-                  Step(title: Text("SellProduct3"), isActive: _currentStap >=2, content: SellProduct3(),state: _currentStap >=2 ? StepState.complete:StepState.disabled),
-                  Step(title: Text("SellProduct4"), isActive: _currentStap >=3, content: SellProduct4(),state: _currentStap >=3 ? StepState.complete:StepState.disabled),
-                  Step(title: Text("SellProduct5"), isActive: _currentStap >=4, content: SellProduct5(),state: _currentStap >=4 ? StepState.complete:StepState.disabled),
-                ],
-                onStepTapped: (int newIndex) {
+
+              SizedBox(height: 20),
+              Text(
+                "Select Payment Type",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+
+              RadioListTile<PaymentType>(
+                title: Text('Payment (Online)'),
+                value: PaymentType.payment,
+                groupValue: _paymentType,
+                onChanged: (PaymentType? value) {
                   setState(() {
-                    _currentStap = newIndex;
+                    _paymentType = value;
                   });
                 },
-                currentStep: _currentStap,
-                onStepContinue: () {
-                  if (_currentStap != 5) {
-                    setState(() {
-                      _currentStap += 1;
-                    });
-                  }
+              ),
+
+              RadioListTile<PaymentType>(
+                title: Text('Cash'),
+                value: PaymentType.cash,
+                groupValue: _paymentType,
+                onChanged: (PaymentType? value) {
+                  setState(() {
+                    _paymentType = value;
+                  });
                 },
-                onStepCancel: () {
-                  if (_currentStap != 0) {
-                    setState(() {
-                      _currentStap -= 1;
-                    });
-                  }
-                },
+              ),
+
+              SizedBox(height: 20),
+              Text(
+                'Selected: ${_paymentType == PaymentType.payment ? 'Online Payment' : _paymentType == PaymentType.cash ? 'Cash' : 'None'}',
+                style: TextStyle(fontSize: 16),
               ),
             ],
           ),

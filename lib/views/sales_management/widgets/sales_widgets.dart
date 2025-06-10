@@ -31,6 +31,7 @@ class SalesWidgets {
     TextInputType? keyboardType,
     String? Function(String?)? validator,
     required String labelText, required double width,
+    
   }) {
     return Container(
       decoration: BoxDecoration(
@@ -149,6 +150,7 @@ class SalesWidgets {
     required String text,
     required VoidCallback onPressed,
     Color color = Colors.purple,
+
   }) {
     return ElevatedButton(
       onPressed: onPressed,

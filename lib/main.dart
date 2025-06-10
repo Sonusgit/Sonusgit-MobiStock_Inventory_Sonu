@@ -8,6 +8,8 @@ import 'package:mobistock/utils/page_not_found.dart';
 import 'package:mobistock/views/sales_management/sales_management.dart';
 import 'package:mobistock/views/sales_management/sellProduct1.dart';
 
+import 'views/sales_management/five_stap_forn.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
       //   name: AppRoutes.notFound,
       //   page: () => PageNotFoundScreen(),
       // ),
-      home: SalesManagement(),
+      home: FiveStepForm(),
       debugShowCheckedModeBanner: false,
     );
   }

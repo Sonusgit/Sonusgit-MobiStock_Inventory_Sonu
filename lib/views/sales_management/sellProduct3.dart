@@ -14,67 +14,69 @@ class SellProduct3 extends StatefulWidget {
 class _SellProduct3State extends State<SellProduct3> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // Text(
-        //   "Base Price (₹)",
-        //   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-        // ),
-        SalesWidgets.salesHeading(text: "Base Price (₹)"),
-        
-        const SizedBox(height: 8.0),
-        SalesWidgets.buildModernTextField(
-          controller: TextEditingController(),
-          hintText: "Down Payment (₹)",
-          labelText: "Enter Down Payment",
-          width: double.infinity,
-        ),
-        const SizedBox(height: 10.0),
-        SalesWidgets.buildModernTextField(
-          controller: TextEditingController(),
-          hintText: "GST (₹)",
-          labelText: "Enter GST",
-          width: 150.0,
-          keyboardType: TextInputType.number,
-        ),
-        const SizedBox(height: 10.0),
-        SalesWidgets.buildModernTextField(
-          controller: TextEditingController(),
-          hintText: "Accessories (₹)",
-          labelText: "Enter Accessories",
-          width: 150.0,
-          keyboardType: TextInputType.number,
-        ),
-        
-        const SizedBox(height: 10.0),
-        SalesWidgets.buildModernTextField(
-          controller: TextEditingController(),
-          hintText: "Repairs (₹)",
-          labelText: "Enter Repairs",
-          width: 150.0,
-          keyboardType: TextInputType.number,
-        ),
-        const SizedBox(height: 10.0),
-        SalesWidgets.buildModernTextField(
-          controller: TextEditingController(),
-          hintText: "Discount (₹)",
-          labelText: "Enter Discount",
-          width: 150.0,
-          keyboardType: TextInputType.number,
-        ),
-        const SizedBox(height: 16.0),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        
-          children: [
-            SalesWidgets.salesHeading(text: "Total Price (₹)"),
-            const SizedBox(width: 10.0),
-            SalesWidgets.salesHeading(text: "₹91,399"),
-          ],
-        ),
-       
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Text(
+          //   "Base Price (₹)",
+          //   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          // ),
+          SalesWidgets.salesHeading(text: "Base Price (₹)"),
+          
+          const SizedBox(height: 8.0),
+          SalesWidgets.buildModernTextField(
+            controller: TextEditingController(),
+            hintText: "Down Payment (₹)",
+            labelText: "Enter Down Payment",
+            width: double.infinity,
+          ),
+          const SizedBox(height: 10.0),
+          SalesWidgets.buildModernTextField(
+            controller: TextEditingController(),
+            hintText: "GST (₹)",
+            labelText: "Enter GST",
+            width: 150.0,
+            keyboardType: TextInputType.number,
+          ),
+          const SizedBox(height: 10.0),
+          SalesWidgets.buildModernTextField(
+            controller: TextEditingController(),
+            hintText: "Accessories (₹)",
+            labelText: "Enter Accessories",
+            width: 150.0,
+            keyboardType: TextInputType.number,
+          ),
+          
+          const SizedBox(height: 10.0),
+          SalesWidgets.buildModernTextField(
+            controller: TextEditingController(),
+            hintText: "Repairs (₹)",
+            labelText: "Enter Repairs",
+            width: 150.0,
+            keyboardType: TextInputType.number,
+          ),
+          const SizedBox(height: 10.0),
+          SalesWidgets.buildModernTextField(
+            controller: TextEditingController(),
+            hintText: "Discount (₹)",
+            labelText: "Enter Discount",
+            width: 150.0,
+            keyboardType: TextInputType.number,
+          ),
+          const SizedBox(height: 16.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          
+            children: [
+              SalesWidgets.salesHeading(text: "Total Price (₹)"),
+              const SizedBox(width: 10.0),
+              SalesWidgets.salesHeading(text: "₹91,399"),
+            ],
+          ),
+         
+        ],
+      ),
     );
   }
 }
